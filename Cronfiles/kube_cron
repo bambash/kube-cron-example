@@ -1,0 +1,8 @@
+### example cron file for Docker cron
+###########################
+### hello world example ###
+###########################
+#* * * * * root echo hello > /proc/1/fd/1 2>/proc/1/fd/2
+###########################
+* * * * * root echo "$(date) hello from kubernetes" > /proc/1/fd/1 2>/proc/1/fd/2 ## output to stdout/stderr 
+# An empty line is required at the end of this file for a valid cron file.

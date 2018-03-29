@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: cron
+  name: cron
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cron
+  template:
+    metadata:
+      labels:
+        app: cron
+    spec:
+      containers:
+      - image: bambash/docker-cron
+        name: cron
+        volumeMounts:
+        - mountPath: /etc/cron.d/
+          name: cronfiles
+      volumes:
+      - name: cronfiles
+        configMap:
+          name: cronfiles
