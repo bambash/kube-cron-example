@@ -5,6 +5,8 @@ This is meant to serve as an example for running cron jobs.
 
 `cronjob.yaml` will create a CronJob resource in Kubernetes. Documentation: https://cloud.google.com/kubernetes-engine/docs/how-to/cronjobs
 
+expanding on the CronJob resource, I pushed an example helm chart here: https://github.com/bambash/helm-cronjobs
+
 ---
 To use `deployment.yaml`, add your cronfiles to Cronjobs and create a ConfigMap:
 ```
