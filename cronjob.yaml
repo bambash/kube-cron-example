@@ -1,0 +1,23 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: example-cronjob
+spec:
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: example-cronjob
+        spec:
+          containers:
+          - name: example-cronjob
+            image: ubuntu:latest
+            imagePullPolicy: Always
+            command:
+            - /bin/echo
+            args:
+            - i am a cronjob
+  schedule: '* * * * *'
+  successfulJobsHistoryLimit: 3
